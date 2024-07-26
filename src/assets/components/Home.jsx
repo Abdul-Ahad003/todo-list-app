@@ -34,13 +34,6 @@ const Home = () => {
   }
 
   const handleDelete = (e,id) => {
-    // let Id = e.target.id
-    // let ind = todoarray.findIndex(item => {
-    //   return item.id == Id
-    // })
-    // let newtodoarray = [...todoarray]
-    // newtodoarray.pop(ind)
-    // settodoarray(newtodoarray)
     let newtodoarray = todoarray.filter(item=>{
       return item.id!==id
     }); 
@@ -48,14 +41,6 @@ const Home = () => {
   }
 
   const handleEdit = (e,id) => {
-    // let ind = todoarray.findIndex(item => {
-    //   return item.id == id
-    // })
-    // console.log(todoarray[ind]);
-    // settodo(todoarray[ind].todo)
-    // let newtodoarray = [...todoarray]
-    // newtodoarray.pop(ind)
-    // settodoarray(newtodoarray)
     let t = todoarray.filter(i => i.id === id) 
     settodo(t[0].todo)
     let newtodoarray = todoarray.filter(item=>{
