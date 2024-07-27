@@ -60,7 +60,7 @@ const Home = () => {
         <div className=''><h1 className='md:text-[22px] text-center text-[20px] font-bold md:w-1/2 md:mx-auto my-2 '>TODO - Mange your tasks with ease</h1></div>
         <div className='font-semibold text-[19px] my-4'><span>Add a task</span></div>
         <div className='flex gap-3 my-4'>
-          <input type='text' onChange={handleChange} value={todo} className=' bg-black text-white rounded-2xl md:px-6  py-1 outline-none border-none w-[60vw]'></input>
+          <input type='text' onChange={handleChange} value={todo} className=' bg-black text-white rounded-2xl md:px-6 px-1.5 py-1 outline-none border-none w-[60vw]'></input>
           <button onClick={handleSave} disabled={todo.length <= 3} className=' outline-none border-none  disabled:bg-purple-500 bg-purple-900 py-1 px-3 rounded-2xl text-white font-bold'>Save</button>
         </div>
         <div>
@@ -71,7 +71,7 @@ const Home = () => {
               return (showfinished || item.iscompleted == false) && <> <div key={item.id} className='flex justify-between items-center'>
                 <div className='flex items-center gap-8'>
                   <input checked={item.iscompleted} onChange={handleCheck} id={item.id} type='checkbox' className='bg-black'></input>
-                  <div className={` ${item.iscompleted ? "line-through" : "no-underline"} line-through decoration-white text   max-w-2xl break-normal text-[16px] my-2`}>{item.todo}</div>
+                  <div className={` ${item.iscompleted ? "line-through" : "no-underline"} line-through decoration-white text  md:max-w-2xl  text-[16px] my-3.5`}> <p className=' md:max-w-2xl max-w-[56vw]  break-normal '>{item.todo}</p>  </div>
                 </div>
                 <div className='flex'>
                   <div onClick={(e)=>handleEdit(e, item.id)}  className='outline-none border-none bg-purple-900 py-1.5 px-2.5 rounded-xl text-white font-bold mx-1 cursor-pointer'> <img className=' w-4 h-4' src='./edit.svg' /> </div>
