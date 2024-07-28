@@ -57,8 +57,8 @@ const Home = () => {
     <>
       <Navbar />
       <div className=" container min-h-screen md:max-w-[70vw]  max-w-[95vw] bg-[#141414] mx-auto my-8 p-2 md:p-6 rounded-lg text-yellow-400">
-        <div className=''><h1 className='md:text-[22px] text-center text-[20px] font-bold md:w-1/2 md:mx-auto my-2 '>TODO - Mange your tasks with ease</h1></div>
-        <div className='font-semibold text-[19px] my-4'><span>Add a task</span></div>
+        <div className=''><h1 className='md:text-[22px] text-center text-[19px] font-bold md:w-1/2 md:mx-auto my-2 '>TODO - Mange your tasks with ease</h1></div>
+        <div className='font-semibold md:text-[19px] text-[18px] my-5'><span>Add a task</span></div>
         <div className='flex gap-3 my-4'>
           <input type='text' onChange={handleChange} value={todo} className=' bg-black text-white rounded-2xl md:px-6 px-1.5 py-1 outline-none border-none w-[60vw]'></input>
           <button onClick={handleSave} disabled={todo.length <= 3} className=' outline-none border-none  disabled:bg-purple-500 bg-purple-900 py-1 px-3 rounded-2xl text-white font-bold'>Save</button>

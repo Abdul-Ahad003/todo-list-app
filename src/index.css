@@ -11,5 +11,5 @@ body{
 }
 ::-webkit-scrollbar-thumb{
     background-color: #facc15;
-    border-radius: 100px;
+    border-radius: 1000px;
 }
