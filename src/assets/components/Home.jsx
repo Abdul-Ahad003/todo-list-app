@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import Navbar from './Navbar';
 
@@ -12,11 +12,28 @@ const Home = () => {
 
   const [showfinished, setshowfinished] = useState(false)
 
+
+  const saveToLocal = () => {
+    localStorage.setItem("todos", JSON.stringify(todoarray))
+  }
+
+  useEffect(() => {
+      let todoString = localStorage.getItem("todos")
+      if(todoString){
+        let todos = JSON.parse(localStorage.getItem("todos")) 
+        settodoarray(todos)
+    }
+  }, [])
+
+  
   const handleSave = () => {
+    
     settodoarray([...todoarray, { id: uuidv4(), todo, iscompleted: false }])
     let newtodoarray = [...todoarray, { id: uuidv4(), todo, iscompleted: false }]
+    //saveToLocal()
     settodo("")
-    console.log(newtodoarray)
+    localStorage.setItem("todos", JSON.stringify(newtodoarray))
+    
   }
 
   const handleChange = (e) => {
@@ -31,6 +48,7 @@ const Home = () => {
     let newtodoarray = [...todoarray]
     newtodoarray[ind].iscompleted = !newtodoarray[ind].iscompleted
     settodoarray(newtodoarray)
+    saveToLocal()
   }
 
   const handleDelete = (e,id) => {
@@ -38,6 +56,7 @@ const Home = () => {
       return item.id!==id
     }); 
     settodoarray(newtodoarray) 
+    saveToLocal()
   }
 
   const handleEdit = (e,id) => {
@@ -47,6 +66,7 @@ const Home = () => {
       return item.id!==id
     }); 
     settodoarray(newtodoarray)
+    saveToLocal()
   }
 
   const toggleShow = (e) => {
